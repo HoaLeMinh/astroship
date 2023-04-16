@@ -1,0 +1,53 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<div class="flex bg-gray justify-center dark:bg-gray-200 rounded-3xl p-1 border">
+    <button
+      id="dark-button"
+      type="button"
+      aria-label="Use Dark Mode"
+      class="dark:bg-primary align-center flex items-center h-full pr-1 rounded-3xl flex justify-center p-1 w-8 h-8 transition"
+    >
+    <Icon name="ph:moon-bold" />
+    </button>
+
+    <button
+     id="light-button"
+     type="button"
+      aria-label="Use Light Mode"
+      class="bg-primary align-center flex items-center h-full pr-1 dark:bg-transparent rounded-3xl flex justify-center p-1 w-8 h-8 transition"
+    >
+    <Icon name="mdi:white-balance-sunny" />
+    </button>
+  </div>
+
+<style>
+  :global(.dark) {
+    color-scheme: dark;
+  }
+</style>
+
+<script>
+  const darkButton = document.getElementById("dark-button") as HTMLButtonElement;
+  const lightButton = document.getElementById("light-button") as HTMLButtonElement;
+  const theme = localStorage.getItem("theme");
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+
+  function updateTheme(value) {
+    const theme = value === "system" ? systemTheme : value;
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(theme);
+    localStorage.setItem("theme", value);
+  }
+
+  darkButton.addEventListener("click", (event: Event) => {
+    updateTheme('dark');
+  });
+
+  lightButton.addEventListener("click", (event: Event) => {
+    updateTheme('light');
+  });
+</script>
