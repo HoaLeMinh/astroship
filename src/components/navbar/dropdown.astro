@@ -4,9 +4,9 @@ const { title, lastItem, children } = Astro.props;
 ---
 
 <li class="relative">
-  <Dropdown class="group">
+  <Dropdown class="group w-32">
     <button
-      class="flex items-center gap-1 w-full lg:w-auto lg:px-3 py-2 text-gray-600 hover:text-gray-900">
+      class="flex items-center gap-1 w-32 lg:w-48 lg:px-3 py-2 text-gray-600 hover:text-gray-900">
       <span>{title}</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -21,10 +21,10 @@ const { title, lastItem, children } = Astro.props;
           d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
       </svg>
     </button>
-    <DropdownItems>
+    <DropdownItems class="w-32">
       <div
         class:list={[
-          "lg:absolute w-full lg:w-48 z-10",
+          "lg:absolute w-32 lg:w-48 z-10",
           lastItem
             ? "lg:right-0 origin-top-right"
             : "lg:left-0 origin-top-left",

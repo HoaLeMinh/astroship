@@ -3,7 +3,7 @@ export const NavItems = [
   { path: '/projects', title: 'Our Work' },
   { path: '/about', title: 'About Us' },
   {
-    title: "Features",
+    title: "Talent",
     path: "#",
     children: [
       { title: "Action", path: "#" },
@@ -13,19 +13,15 @@ export const NavItems = [
     ],
   },
   {
-    title: "Pricing",
-    path: "/pricing",
+    title: "Team",
+    path: "/team",
   },
   {
-    title: "About",
-    path: "/about",
+    title: "Media",
+    path: "/media",
   },
   {
-    title: "Blog",
-    path: "/blog",
-  },
-  {
-    title: "Contact",
-    path: "/contact",
+    title: "Hall of fame",
+    path: "/hall-of-fame",
   },
 ];
