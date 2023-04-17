@@ -1,4 +1,4 @@
-export const HallOfFame = {
+export const HallOfFameData = {
   title: 'Hall of Fame',
   description: 'Some of our favorite moments with talent, influencers, and collaborators.',
   imagesSrc: [

@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "@astrojs/image/components";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+// Filter media entries with 'draft: false' & date before current date
+const publishedMediaItems = await getCollection("media", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+---
+
+<Layout title="Media">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Media</Fragment>
+      <Fragment slot="desc"></Fragment>
+    </Sectionhead>
+    <div class="grid md:grid-cols-2 gap-20 mx-auto max-w-4xl mt-12">
+      {
+        publishedMediaItems.map((itemEntry) => (
+          <div class="group">
+            <div class="w-full aspect-square">
+              <Picture
+                src={itemEntry.data.avatar.src}
+                alt={itemEntry.data.avatar.alt}
+                sizes="(max-width: 800px) 100vw, 400px"
+                widths={[200, 400]}
+                aspectRatio="1:1"
+                background="#ffffff"
+                fit="cover"
+                position="center"
+                class="w-full rounded-md rounded transition group-hover:-translate-y-1 group-hover:shadow-xl"
+              />
+            </div>
+
+            <div class="mt-4 text-center">
+              <h2 class="font-bold">
+                {itemEntry.data.title}
+              </h2>
+              <p class="text-left p-4">{itemEntry.data.description}</p>
+              <center><iframe class="w-full overflow-hidden" scrolling="no" src={itemEntry.data.podcastSrc} title={itemEntry.data.title} height={170} ></iframe></center>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</Layout>

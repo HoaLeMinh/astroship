@@ -23,7 +23,8 @@ import {AboutUs} from "../data/about-us";
             height={AboutUs.imageSrcHeight}
           />
         </div>
-        <div class="prose max-w-none pt-10 pb-8 dark:prose-dark xl:col-span-1">
+        <div class="prose max-w-none pt-8 lg:pt-16 pb-1 dark:prose-dark xl:col-span-1">
+          <h2>{AboutUs.subtitle}</h2>
           {AboutUs.description.split('\n').map((item, i) => (
             <p class="pt-1">{item}</p>
           ))}
