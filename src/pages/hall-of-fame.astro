@@ -1,0 +1,16 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import HallOfFame from "@components/hall-of-fame.astro";
+---
+
+<Layout title={''}>
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">{''}</Fragment>
+      <Fragment slot="desc"></Fragment>
+    </Sectionhead>
+    <HallOfFame />
+  </Container>
+</Layout>
