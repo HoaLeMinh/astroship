@@ -1,4 +1,5 @@
 ---
+import styles from './styles/global.css';
 import Container from "@components/container.astro";
 import Cta from "@components/cta.astro";
 import Features from "@components/features.astro";
@@ -6,13 +7,42 @@ import Footer from "@components/footer.astro";
 import Hero from "@components/hero.astro";
 import Logos from "@components/logos.astro";
 import Layout from "@layouts/Layout.astro";
+import Masonry from "@components/masonry.vue";
+
+const imageList = ['https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+'https://cdn.vuetifyjs.com/images/carousel/sky.jpg','https://cdn.vuetifyjs.com/images/carousel/bird.jpg'];
+const imageList2 = ['https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+'https://cdn.vuetifyjs.com/images/carousel/sky.jpg','https://cdn.vuetifyjs.com/images/carousel/bird.jpg'];
 ---
 
-<Layout title="">
+<Layout title="Home">
   <Container>
     <Hero />
+    <Masonry client:load />
     <Features />
     <Logos />
     <Cta />
   </Container>
 </Layout>
+
+
+<!-- export default {
+  data () {
+    return {
+      items: [
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+        },
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+        },
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+        },
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+        },
+      ],
+    }
+  },
+} -->
